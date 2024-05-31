@@ -21,34 +21,65 @@ return new class extends Migration
         Schema::connection('mysql')->create('town', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
+            $table->string('administrator')->nullable(false);
+            $table->string('email')->unique()->nullable(false);
             $table->integer('zip_code')->unique()->nullable(false);
-            $table->string('username')->unique()->nullable(false); // in controller, make it non editable field by making format t[zip_code]
             $table->string('password')->nullable(false);
+            $table->timestamp('time_created')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->binary('official_seal')->nullable(); 
         });
 
-        Schema::connection('mysql')->create('super_admin', function (Blueprint $table) {
+        Schema::connection('mysql')->create('admin', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
-            $table->string('username')->unique()->nullable(false); // in controller, make it non editable field by making format admin[name]
+            $table->string('email')->unique()->nullable(false);
             $table->string('password')->nullable(false);
+            $table->timestamp('time_created')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->binary('profile_image')->nullable(); 
+        });
+
+        Schema::connection('mysql')->create('establishment_type', function (Blueprint $table) {
+            $table->id();
+            $table->string('type')->unique()->nullable(false);
         });
 
         Schema::connection('mysql')->create('establishment', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
             $table->string('code')->unique()->nullable(false);
+            $table->string('email')->unique()->nullable(false);
+            $table->string('bir_id')->nullable(false);
+            $table->string('owner_name')->nullable(false);
+            $table->string('owner_tin', 12)->nullable(false);
+            $table->unsignedBigInteger('establishment_type_id');
+            $table->foreign('establishment_type_id')->references('id')->on('establishment_type');
             $table->string('address')->nullable(false);
-            $table->string('username')->unique()->nullable(false); // in controller, make it non editable field by making format e[code]
-            $table->string('password')->nullable(false);
+           $table->string('password')->nullable(false);
+           $table->timestamp('time_created')->default(DB::raw('CURRENT_TIMESTAMP'));
+           $table->binary('logo')->nullable(); 
+        });
+
+        Schema::connection('mysql')->create('teller', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable(false);
+            $table->date('birthdate')->nullable(false);
+            $table->string('address')->nullable(false);
+            $table->string('tin', 12)->unique()->nullable(false);
+            $table->unsignedBigInteger('establishment_id');
+            $table->foreign('establishment_id')->references('id')->on('establishment');
+            $table->binary('profile_image')->nullable(); 
         });
 
         Schema::connection('mysql')->create('barangay', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
-            $table->unsignedBigInteger('town_id')->nullable(false); // Adding town_id column
+            $table->string('administrator')->nullable(false);
+            $table->unsignedBigInteger('town_id')->nullable(false);
             $table->foreign('town_id')->references('id')->on('town');
-            $table->string('username')->unique()->nullable(false); // in controller, make it non editable field by making format b[zip_code][barangay_name]
+            $table->string('email')->unique()->nullable(false);
             $table->string('password')->nullable(false);
+            $table->timestamp('time_created')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->binary('official_seal')->nullable(); 
         });
 
         Schema::connection('mysql')->create('senior', function (Blueprint $table) {
@@ -70,7 +101,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable(false);
             $table->integer('quantity')->nullable(false);
-            $table->decimal('price', 10, 2); 
+            $table->decimal('price', 10, 2)->nullable(false); 
         });
 
         Schema::connection('mysql')->create('transaction', function (Blueprint $table) {
@@ -79,7 +110,9 @@ return new class extends Migration
             $table->foreign('senior_id')->references('id')->on('senior');
             $table->unsignedBigInteger('establishment_id')->nullable(false); 
             $table->foreign('establishment_id')->references('id')->on('establishment');
-            $table->date('date');
+            $table->date('date')->nullable(false);
+            $table->unsignedBigInteger('teller_id')->nullable(false);
+            $table->foreign('teller_id')->references('id')->on('teller');
         });
 
         Schema::connection('mysql')->create('product_transaction', function (Blueprint $table) {
@@ -97,8 +130,10 @@ return new class extends Migration
         config(['database.connections.mysql.database' => null]);
 
         Schema::connection('mysql')->dropIfExists('town');
-        Schema::connection('mysql')->dropIfExists('super_admin');
+        Schema::connection('mysql')->dropIfExists('admin');
+        Schema::connection('mysql')->dropIfExists('establishment_type');
         Schema::connection('mysql')->dropIfExists('establishment');
+        Schema::connection('mysql')->dropIfExists('teller');
         Schema::connection('mysql')->dropIfExists('barangay');
         Schema::connection('mysql')->dropIfExists('senior');
         Schema::connection('mysql')->dropIfExists('products');
