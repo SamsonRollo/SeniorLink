@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Teller extends Model
 {
     protected $fillable = ['name', 'birthdate', 'address', 'tin', 'establishment_id', 'profile_image'];
+    protected $table = 'teller';
 
     public function establishment()
     {

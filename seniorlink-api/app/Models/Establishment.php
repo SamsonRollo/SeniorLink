@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Establishment extends Model
 {
     protected $fillable = ['name', 'code', 'email', 'bir_id', 'owner_name', 'owner_tin', 'establishment_type_id', 'address', 'password', 'logo'];
+    protected $table = 'establishment';
 
     public function establishmentType()
     {

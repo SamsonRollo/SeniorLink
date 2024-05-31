@@ -1,6 +1,18 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
+use Database\Seeders\TownSeeder;
+use Database\Seeders\AdminSeeder;
+use Database\Seeders\BarangaySeeder;
+use Database\Seeders\EstablishmentTypeSeeder;
+use Database\Seeders\EstablishmentSeeder;
+use Database\Seeders\TellerSeeder;
+use Database\Seeders\SeniorSeeder;
+use Database\Seeders\TransactionSeeder;
+use Database\Seeders\ProductsSeeder;
+use Database\Seeders\ProductTransactionSeeder;
 
 class DatabaseSeeder extends Seeder
 {

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     protected $fillable = ['senior_id', 'establishment_id', 'date', 'teller_id'];
+    protected $table = 'transaction';
+
 
     public function senior()
     {

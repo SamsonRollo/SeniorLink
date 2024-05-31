@@ -1,9 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Establishment;
-use Illuminate\Support\Facades\Date;
 use Faker\Factory as Faker;
 
 class EstablishmentSeeder extends Seeder
@@ -24,7 +25,6 @@ class EstablishmentSeeder extends Seeder
                 'address' => $faker->address,
                 'password' => Hash::make('123'),
                 'logo_path' => null,
-                'time_created' => Date::now(),
             ]);
         }
     }

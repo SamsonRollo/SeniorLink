@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Models\Barangay;
 use Illuminate\Support\Facades\Date;
@@ -20,7 +22,6 @@ class BarangaySeeder extends Seeder
                 'email' => $faker->unique()->safeEmail,
                 'password' => Hash::make('123'),
                 'official_seal_path' => null,
-                'time_created' => Date::now(),
             ]);
         }
     }

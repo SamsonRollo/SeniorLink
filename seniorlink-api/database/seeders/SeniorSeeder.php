@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Models\Senior;
+use App\Models\Barangay;
 use Faker\Factory as Faker;
 
 class SeniorSeeder extends Seeder
@@ -13,7 +16,7 @@ class SeniorSeeder extends Seeder
         $barangayCount = 100;
 
         foreach (range(1, 500) as $index) {
-            $barangay = App\Models\Barangay::find($faker->numberBetween(1, $barangayCount));
+            $barangay = Barangay::find($faker->numberBetween(1, $barangayCount));
             $zipcode = $barangay->town->zip_code;
             $osca_id = $faker->unique()->ean13;
             $username = 's' . $zipcode . $osca_id;

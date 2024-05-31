@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Models\Transaction;
+use App\Models\Teller;
 use Faker\Factory as Faker;
 
 class TransactionSeeder extends Seeder
@@ -29,7 +32,7 @@ class TransactionSeeder extends Seeder
 
     private function getRandomTellerIdForEstablishment($establishmentId)
     {
-        $tellers = App\Models\Teller::where('establishment_id', $establishmentId)->pluck('id');
+        $tellers = Teller::where('establishment_id', $establishmentId)->pluck('id');
         return $tellers->random();
     }
 }

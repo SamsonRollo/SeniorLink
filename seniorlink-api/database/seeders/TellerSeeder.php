@@ -1,8 +1,9 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Models\Teller;
-use Illuminate\Support\Facades\Date;
 use Faker\Factory as Faker;
 
 class TellerSeeder extends Seeder
