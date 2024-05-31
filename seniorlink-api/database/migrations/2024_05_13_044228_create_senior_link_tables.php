@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('zip_code')->unique()->nullable(false);
             $table->string('password')->nullable(false);
             $table->timestamp('time_created')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->binary('official_seal')->nullable(); 
+            $table->string('official_seal_path')->nullable();
         });
 
         Schema::connection('mysql')->create('admin', function (Blueprint $table) {
@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable(false);
             $table->string('password')->nullable(false);
             $table->timestamp('time_created')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->binary('profile_image')->nullable(); 
+            $table->string('profile_image_path')->nullable(); 
         });
 
         Schema::connection('mysql')->create('establishment_type', function (Blueprint $table) {
@@ -54,9 +54,9 @@ return new class extends Migration
             $table->unsignedBigInteger('establishment_type_id');
             $table->foreign('establishment_type_id')->references('id')->on('establishment_type');
             $table->string('address')->nullable(false);
-           $table->string('password')->nullable(false);
-           $table->timestamp('time_created')->default(DB::raw('CURRENT_TIMESTAMP'));
-           $table->binary('logo')->nullable(); 
+            $table->string('password')->nullable(false);
+            $table->timestamp('time_created')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->string('logo_path')->nullable();
         });
 
         Schema::connection('mysql')->create('teller', function (Blueprint $table) {
@@ -67,7 +67,7 @@ return new class extends Migration
             $table->string('tin', 12)->unique()->nullable(false);
             $table->unsignedBigInteger('establishment_id');
             $table->foreign('establishment_id')->references('id')->on('establishment');
-            $table->binary('profile_image')->nullable(); 
+            $table->string('profile_image_path')->nullable(); 
         });
 
         Schema::connection('mysql')->create('barangay', function (Blueprint $table) {
@@ -79,7 +79,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable(false);
             $table->string('password')->nullable(false);
             $table->timestamp('time_created')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->binary('official_seal')->nullable(); 
+            $table->string('official_seal_path')->nullable();
         });
 
         Schema::connection('mysql')->create('senior', function (Blueprint $table) {
@@ -93,8 +93,7 @@ return new class extends Migration
             $table->date('birthdate')->nullable(false);
             $table->string('contact_number', 11)->nullable(false);
             $table->string('username')->unique()->nullable(false); // in controller, make it non editable field by making format s[zip_code][osca_id]
-            $table->binary('profile_image')->nullable(); 
-            $table->binary('qr_image')->nullable(); 
+            $table->string('profile_image_path')->nullable(); 
         });
 
         Schema::connection('mysql')->create('products', function (Blueprint $table) {
