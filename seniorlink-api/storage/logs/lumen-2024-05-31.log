@@ -591,3 +591,19 @@
 #21 /home/samthegreat/Desktop/Projects/SeniorLink/seniorlink-api/artisan(35): Laravel\\Lumen\\Console\\Kernel->handle()
 #22 {main}
 "} 
+[2024-05-31 14:46:20] local.ERROR: Command "make:factory" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:factory\" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder at /home/samthegreat/Desktop/Projects/SeniorLink/seniorlink-api/vendor/symfony/console/Application.php:737)
+[stacktrace]
+#0 /home/samthegreat/Desktop/Projects/SeniorLink/seniorlink-api/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#1 /home/samthegreat/Desktop/Projects/SeniorLink/seniorlink-api/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/samthegreat/Desktop/Projects/SeniorLink/seniorlink-api/vendor/laravel/lumen-framework/src/Console/Kernel.php(160): Symfony\\Component\\Console\\Application->run()
+#3 /home/samthegreat/Desktop/Projects/SeniorLink/seniorlink-api/artisan(35): Laravel\\Lumen\\Console\\Kernel->handle()
+#4 {main}
+"} 
