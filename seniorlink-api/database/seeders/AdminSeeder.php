@@ -16,7 +16,7 @@ class AdminSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->unique()->safeEmail,
                 'password' => Hash::make('123'),
-                'profile_image' => null,
+                'profile_image_path' => null,
             ]);
         }
     }

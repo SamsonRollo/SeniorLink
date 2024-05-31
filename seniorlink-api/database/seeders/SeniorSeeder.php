@@ -27,7 +27,7 @@ class SeniorSeeder extends Seeder
                 'birthdate' => $faker->date(),
                 'contact_number' => $faker->numerify('0##########'),
                 'username' => $username,
-                'profile_image' => null,
+                'profile_image_path' => null,
             ]);
         }
     }

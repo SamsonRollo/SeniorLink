@@ -19,7 +19,7 @@ class BarangaySeeder extends Seeder
                 'town_id' => $faker->numberBetween(1, 10), // Assuming there are 10 towns
                 'email' => $faker->unique()->safeEmail,
                 'password' => Hash::make('123'),
-                'official_seal' => null,
+                'official_seal_path' => null,
                 'time_created' => Date::now(),
             ]);
         }

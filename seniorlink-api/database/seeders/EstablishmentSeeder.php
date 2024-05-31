@@ -23,7 +23,7 @@ class EstablishmentSeeder extends Seeder
                 'establishment_type_id' => $faker->numberBetween(1, 10), // based on establishmenttypeseeder
                 'address' => $faker->address,
                 'password' => Hash::make('123'),
-                'logo' => null,
+                'logo_path' => null,
                 'time_created' => Date::now(),
             ]);
         }

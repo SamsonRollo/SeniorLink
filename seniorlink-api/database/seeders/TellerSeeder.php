@@ -18,7 +18,7 @@ class TellerSeeder extends Seeder
                 'address' => $faker->address,
                 'tin' => $faker->numerify('##########'),
                 'establishment_id' => $faker->numberBetween(1, 15),
-                'profile_image' => null,
+                'profile_image_path' => null,
             ]);
         }
     }

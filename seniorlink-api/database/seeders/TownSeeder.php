@@ -20,7 +20,7 @@ class TownSeeder extends Seeder
                 'zip_code' => $faker->postcode,
                 'password' => Hash::make('123'),
                 'time_created' => Date::now(),
-                'official_seal' => null,
+                'official_seal_path' => null,
             ]);
         }
     }
