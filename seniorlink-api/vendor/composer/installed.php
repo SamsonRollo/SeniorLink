@@ -3,7 +3,7 @@
         'name' => 'laravel/lumen',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '6d7451f580b0c2e10c7438dfe3d5b3ce97f5de65',
+        'reference' => 'a810b8fe0dd54e10728cff8bdda35a4c91ecea75',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -257,8 +257,8 @@
             'dev_requirement' => false,
         ),
         'illuminate/filesystem' => array(
-            'pretty_version' => 'v10.48.10',
-            'version' => '10.48.10.0',
+            'pretty_version' => 'v10.48.12',
+            'version' => '10.48.12.0',
             'reference' => '592fb581a52fba43bf78c2e4b22db540c9f9f149',
             'type' => 'library',
             'install_path' => __DIR__ . '/../illuminate/filesystem',
@@ -391,7 +391,7 @@
         'laravel/lumen' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '6d7451f580b0c2e10c7438dfe3d5b3ce97f5de65',
+            'reference' => 'a810b8fe0dd54e10728cff8bdda35a4c91ecea75',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

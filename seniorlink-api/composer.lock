@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d9fcd0979339baa17ca1b6ea834e8b2",
+    "content-hash": "cfae81ac0138e9ecedd9f8c4e1c3a18f",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1479,7 +1479,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v10.48.10",
+            "version": "v10.48.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
