@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Barangay extends Model
 {
-    protected $fillable = ['name', 'administrator', 'town_id', 'email', 'password', 'official_seal'];
+    protected $fillable = ['name', 'administrator', 'town_id', 'email', 'password', 'official_seal_path'];
     protected $table = 'barangay';
 
     public function town()
